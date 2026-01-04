@@ -7,6 +7,8 @@
   .slider {
     gap: 20px;
   }
+
+  
 }
 
 @media (max-width: 496px) {
@@ -34,6 +36,10 @@
   #btn-voltar {
     left: 20%;
   }
+
+  span{
+    font-size: 14px;
+  }
 }
 
 @media(max-width:375px){
@@ -44,6 +50,10 @@
     }
 
     .cabecalho{
+        font-size: 13px;
+    }
+
+    span{
         font-size: 13px;
     }
 }
