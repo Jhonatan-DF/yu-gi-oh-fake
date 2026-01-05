@@ -19,8 +19,22 @@ anterior da lista
 const btnAvancar = document.getElementById("btn-avancar");
 const btnVoltar = document.getElementById("btn-voltar");
 const cartoes = document.querySelectorAll(".carta");
-
 let cartaoSelecionado = 0;
+
+cartoes.forEach((carta) => {
+  carta.addEventListener("click", () => {
+    const cartaVirada = carta.querySelector(".carta-virada");
+
+    //mostar a carta virada
+    carta.classList.toggle("virar");
+    //mostar o fundo da carta
+    cartaVirada.classList.toggle("mostar-fundo-carta");
+
+    const descricao = carta.querySelector(".descricao");
+    //mostrar a descricao da carta
+    descricao.classList.toggle("esconder");
+  });
+});
 
 // - passo 2 - dar um jeito de identificar o clique do usuário na seta avançar
 btnAvancar.addEventListener("click", () => {
@@ -35,7 +49,7 @@ btnAvancar.addEventListener("click", () => {
   cartoes[cartaoSelecionado].classList.add("selecionado");
 });
 
-// OBJETIVO 2 - quando clicarmos na seta de voltar temos que mostrar o cartão 
+// OBJETIVO 2 - quando clicarmos na seta de voltar temos que mostrar o cartão
 // anterior da lista
 //  - passo 1 - dar um jeito de pegar o elemento HTML da seta voltar
 //  - passo 2 - dar um jeito de identificar o clique do usuário na seta voltar
@@ -43,10 +57,8 @@ btnAvancar.addEventListener("click", () => {
 //    - passo 4 - buscar o cartão que esta selecionado e esconder
 // */
 
-
-
 btnVoltar.addEventListener("click", () => {
-  if (cartaoSelecionado ===  0) return;
+  if (cartaoSelecionado === 0) return;
 
   const cartaoAtual = document.querySelector(".selecionado");
   cartaoAtual.classList.remove("selecionado");
@@ -54,4 +66,3 @@ btnVoltar.addEventListener("click", () => {
   cartaoSelecionado--;
   cartoes[cartaoSelecionado].classList.add("selecionado");
 });
-
